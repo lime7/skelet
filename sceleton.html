@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title> Skeleton css3 </title>
+
+	<link rel="stylesheet" href="css/normalize.min.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<div class="container">
+		<input type="checkbox" name="ctr" id="grid">
+		<input type="checkbox" name="ctr" id="fast">
+		<input type="checkbox" name="ctr" id="info">
+
+		<ul class="control__list">
+			<li> 
+				<label for="grid" class="control__item control__item_grid">
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M6 6h-6v-6h6v6zm9-6h-6v6h6v-6zm9 0h-6v6h6v-6zm-18 9h-6v6h6v-6zm9 0h-6v6h6v-6zm9 0h-6v6h6v-6zm-18 9h-6v6h6v-6zm9 0h-6v6h6v-6zm9 0h-6v6h6v-6z"/></svg>
+				</label> 
+			</li>
+
+			<li>
+				<label for="fast" class="control__item control__item_fast">
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M14 12l-14 9v-18l14 9zm-4-9v4l8.022 5-8.022 5v4l14-9-14-9z"/></svg>
+				</label>
+			</li>
+
+			<li> 
+				<label for="info" class="control__item control__item_info">
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-2.033 16.01c.564-1.789 1.632-3.932 1.821-4.474.273-.787-.211-1.136-1.74.209l-.34-.64c1.744-1.897 5.335-2.326 4.113.613-.763 1.835-1.309 3.074-1.621 4.03-.455 1.393.694.828 1.819-.211.153.25.203.331.356.619-2.498 2.378-5.271 2.588-4.408-.146zm4.742-8.169c-.532.453-1.32.443-1.761-.022-.441-.465-.367-1.208.164-1.661.532-.453 1.32-.442 1.761.022.439.466.367 1.209-.164 1.661z"/></svg>
+				</label> 
+			</li>
+
+			<li class="author">
+				<a href="#">
+					&copy; Semenchenko Elena
+				</a>
+			</li>
+		</ul>
+
+		<div class="info">
+			<h3 > walking skeleton <br> Episode 1. </h3>
+
+			<ul>
+				<li> - only css</li>
+				<li> - fixed width/height</li>
+				<li> - modern browser</li>
+			</ul>
+
+			<span>to be continued ...</span>
+		</div>
+
+		<div class="episode">
+			<div class="man">
+				<div class="grid-s">
+					<div class="grid">
+						<i class="x"></i>
+						<i class="x"></i>
+						<i class="x"></i>
+						<i class="x"></i>
+						<i class="x"></i>
+						<i class="x"></i>
+						<i class="x"></i>
+						<i class="x"></i>
+						<i class="x"></i>
+						<i class="x"></i>
+						<i class="x"></i>
+						<i class="x"></i>
+						<i class="x"></i>
+						<i class="x"></i>
+						<i class="x"></i>
+						<i class="x"></i>
+						<i class="x"></i>
+					</div>
+					<div class="grid">
+						<i class="y"></i>
+						<i class="y"></i>
+						<i class="y"></i>
+						<i class="y"></i>
+						<i class="y"></i>
+						<i class="y"></i>
+						<i class="y"></i>
+						<i class="y"></i>
+						<i class="y"></i>
+						<i class="y"></i>
+						<i class="y"></i>
+						<i class="y"></i>
+						<i class="y"></i>
+						<i class="y"></i>
+					</div>
+				</div>
+
+				<div class="axis">		
+
+					<div class="ab torso">
+						<div class="ab neck"> <!--  <<< Шея -->
+							<div class="ab head"> <!--  <<< Голова >>> --> </div>
+						</div>
+						
+						<div class="ab arm arm_left"> <!--  <<< Рука левая -->
+							<div class="ab shoulder shoulder_left">
+								<div class="ab forearm forearm_left">
+									<div class="ab hend hend_left">
+										
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="ab body"></div>	<!--  <<< Тело -->
+
+						<div class="ab arm arm_right"> <!--  <<< Рука правая -->
+							<div class="ab shoulder shoulder_right">
+								<div class="ab forearm forearm_right">
+									<div class="ab hend hend_right">
+										
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<!-- <<< Ноги >>> -->
+						<div class="leg-s">
+							<div class="ab leg leg_left">
+								<div class="ab hip hip_left">
+									<div class="ab knee knee_left"> </div>
+
+									<div class="ab shin shin_left"> 
+										<div class="ab foot foot_left">
+											<div class="ab toe toe_left"> </div>
+										</div>
+									</div>							
+								</div>
+							</div>
+
+							<div class="ab leg leg_right">
+								<div class="ab hip hip_right">
+									<div class="ab knee knee_right"> </div>
+
+									<div class="ab shin shin_right"> 
+										<div class="ab foot foot_right">
+											<div class="ab toe toe_right"> </div>
+										</div>
+									</div>						
+								</div>
+							</div>
+						</div>
+						
+					</div>			
+
+				</div>
+
+			</div>
+
+			<div class="level">
+				
+			</div>
+		</div>
+	</div>
+</body>
+</html>
