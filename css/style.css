@@ -1,0 +1,866 @@
+/*!*/  /* ------------------------------------------ <<<= Helper style */
+*, 
+*:before, 
+*:after {
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
+html, 
+body { 
+    margin: 0; 
+    padding: 0; 
+    width: 100%; 
+    height: 100%;
+}
+
+body {
+    background: #fff;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: normal;
+    font-style: normal;    
+}
+
+.container {
+    position: relative;
+    height: 100%;
+}
+
+.control__list {
+    position: absolute;
+    z-index: 7;
+    top: 2rem;
+    list-style-type: none;
+}
+
+.control__item {
+    display: block;
+    width: 5rem;
+    padding: .5rem .75rem;
+    margin: .5rem 0;
+    text-align: center;
+    text-transform: lowercase;
+    cursor: pointer;
+    
+    font-size: .75rem;
+    color: #333;
+}
+
+.control__item svg {
+    -webkit-transition: all .27s ease-out;
+            transition: all .27s ease-out;
+
+    fill: aliceblue;
+}
+
+[type="checkbox"] {
+    display: none;
+}
+
+#grid:checked ~ .episode .man .grid-s {
+    display: block;    
+}
+
+#grid:checked ~ .episode .man .grid {
+    background: rgba(255, 255, 255, .12);
+}
+
+#info:checked ~ .control__list .control__item_info svg,
+#fast:checked ~ .control__list .control__item_fast svg,
+#grid:checked ~ .control__list .control__item_grid svg,
+.control__item:hover svg {
+    fill: coral;
+}
+
+.info {
+    position: fixed;
+    top: 7rem;
+    left: 7rem;
+    z-index: 10;
+    font-size: .75rem;
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    background: aliceblue;
+    color: #333;
+    border: 1px solid rgba(183, 179, 179, 0.34);
+    -webkit-box-shadow: inset 0px -5px 20px rgba(17, 17, 17, 0.17);
+    box-shadow: inset 0px -5px 20px rgba(17, 17, 17, 0.17);   
+    
+    opacity: 0;
+    -webkit-transition: all .27s ease-in-out;
+            transition: all .27s ease-in-out;
+
+    -webkit-transform: translateX(-150%);
+            transform: translateX(-150%);
+}
+
+#info:checked ~ .info {
+    opacity: 1;
+
+    -webkit-transform: translateX(0%);
+            transform: translateX(0%);
+}
+
+.info h3 {
+    text-transform: uppercase;
+}
+
+.info ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.info span {
+    color: coral;
+    font-style: italic;
+}
+
+.author a {
+    display: block;
+    font-size: .8rem;    
+    color: aliceblue;
+    font-weight: bold;
+    text-decoration: none;
+    text-transform: uppercase;
+    
+
+    -webkit-transition: all .27s ease-in-out;
+            transition: all .27s ease-in-out;
+
+    -webkit-transform-origin: 7rem 5rem;
+            transform-origin: 7rem 5rem;
+
+    -webkit-transform: rotate(-90deg);
+            transform: rotate(-90deg);
+}
+
+.author a:hover {
+    color: coral;
+}
+/* ------------------------------------------ <<<= Эпизод */
+.episode { 
+    height: 100%;
+    width: 700px;    
+    padding: 2rem;
+    overflow: hidden;
+    position: relative;
+    border-top: 2rem solid #111;
+    border-bottom: 2rem solid #111;
+    background-image: url(../images/bg.png);
+    background-repeat: repeat-x;
+    background-position: 0px 0px; 
+    -webkit-background-size: auto 100%;
+            background-size: auto 100%;
+
+    animation: bg 25s linear infinite;
+}
+
+@keyframes bg {
+    0%   { background-position: 0px 0px; }
+    100% { background-position: -1034px 0px; }
+}
+
+/* ------------------------------------------ <<<= Трава */
+.level {    
+    height: .5rem;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: .75rem;
+}
+/* ------------------------------------------ <<<= Обертка персонажа */
+.man {
+    width: 27rem; /*!*/
+    height: 34rem; /*!*/
+    margin-left: 5rem; /*!*/
+    position: absolute;
+    bottom: .25rem;
+}
+/* ------------------------------------------ <<<= Сетка */
+.grid {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: .85rem;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0);
+}
+.grid-s {
+    display: none;
+}
+.grid i {
+    display: block;    
+    background: rgba(238, 238, 238, 0.52);
+}
+.x {
+    width: 100%;
+    float: none;
+    height: 1px;    
+}
+.x+.x {
+    margin-top: 2rem;
+}
+.y {
+    width: 1px;
+    height: 100%;
+    float: left;
+}
+.y+.y {
+    margin-left: 2rem;
+}
+/* ------------------------------------------ <<<= Вспомогательные классы */
+.ab {
+    position: absolute;
+    width: 1.7rem;     
+    border-radius: 10px;
+    /* background: rgba(187, 187, 187, 0.32);
+    border: 1px solid #bbb; */
+    
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);  
+
+    -webkit-animation-iteration-count: infinite;
+            animation-iteration-count: infinite;
+
+    -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+}
+
+.ab_left {
+    background: rgba(187, 187, 187, 0.72);
+    border: 1px solid #bbb;
+}
+
+.ab_right {
+    background: rgba(119, 119, 119, 0.72);
+    border: 1px solid #bbb;
+}
+/* ------------------------------------------ <<<= Ось персонажа */
+.axis {
+    width: 1px; /*!*/
+    height: 100%; /*!*/
+
+    position: relative;
+    margin-left: 12.4rem;
+}
+/* ------------------------------------------ <<<= Анимация */
+.head {
+    -webkit-transform-origin: 40% 100%;
+            transform-origin: 40% 100%;   
+}
+/* ------------------------------------------ <<<= Анимация торс */
+.torso {
+    -webkit-transform-origin: 0% 100%;
+            transform-origin: 0% 100%;   
+}
+
+.arm,
+.hip,
+.shoulder {
+    -webkit-transform-origin: 0% 0%;
+            transform-origin: 0% 0%; 
+}
+
+.forearm {
+    -webkit-transform-origin: 10px 5px;
+            transform-origin: 10px 5px;
+}
+
+.hend {
+    -webkit-transform-origin: 7px 2px;
+            transform-origin: 7px 2px;
+}
+
+.shin,
+.foot {
+    -webkit-transform-origin: 17px -2px;
+            transform-origin: 17px -2px;
+}
+
+.toe {
+    -webkit-transform-origin: 12px 8px;
+            transform-origin: 12px 8px;
+}
+/* ------------------------------------------ <<<= Анимация голова */
+.head {
+    -webkit-animation-name: head;
+            animation-name: head;
+}
+/* ------------------------------------------ <<<= Анимация торс */
+.torso {
+    -webkit-animation-name: torso;
+            animation-name: torso;
+}
+/* ------------------------------------------ <<<= Анимация рука */
+.shoulder_left {
+    -webkit-animation-name: shoulder-left;
+            animation-name: shoulder-left;
+}
+
+.shoulder_right {
+    -webkit-animation-name: shoulder-right;
+            animation-name: shoulder-right;
+}
+
+.forearm_left {
+    -webkit-animation-name: forearm-left;
+            animation-name: forearm-left;
+}
+
+.forearm_right {
+    -webkit-animation-name: forearm-right;
+            animation-name: forearm-right;
+}
+
+.hend_left {
+    -webkit-animation-name: hend-left;
+            animation-name: hend-left;
+}
+
+.hend_right {
+    -webkit-animation-name: hend-right;
+            animation-name: hend-right;
+}
+/* ------------------------------------------ <<<= Анимация бедро */
+.hip_left {
+    -webkit-animation-name: hip-left;
+            animation-name: hip-left;
+}
+
+.hip_right {
+    -webkit-animation-name: hip-right;
+            animation-name: hip-right;
+}
+/* ------------------------------------------ <<<= Анимация голень */
+.shin_right {
+    -webkit-animation-name: shin-right;
+            animation-name: shin-right;
+}
+
+.shin_left {
+    -webkit-animation-name: shin-left;
+            animation-name: shin-left;
+}
+/* ------------------------------------------ <<<= Анимация колено */
+.knee_right {
+    -webkit-animation-name: knee-right;
+            animation-name: knee-right;
+}
+
+.knee_left {
+    -webkit-animation-name: knee-left;
+            animation-name: knee-left;
+}
+/* ------------------------------------------ <<<= Анимация стопа */
+.foot_right {
+    -webkit-animation-name: foot-right;
+            animation-name: foot-right;
+}
+
+.foot_left {
+    -webkit-animation-name: foot-left;
+            animation-name: foot-left;
+}
+/* ------------------------------------------ <<<= Анимация ступня */
+.toe_right {
+    -webkit-animation-name: toe-right;
+            animation-name: toe-right;
+}
+
+.toe_left {
+    -webkit-animation-name: toe-left;
+            animation-name: toe-left;
+}
+
+@-webkit-keyframes head {
+    50%  { -webkit-transform: rotate(-15deg); transform: rotate(-15deg); }
+}
+
+@-webkit-keyframes torso {
+    50%  { -webkit-transform: rotate(5deg) translateY(7px); transform: rotate(5deg) translateY(7px); }
+}
+
+@-webkit-keyframes shoulder-left {
+    0%, 100% { -webkit-transform: rotate(-25deg); transform: rotate(-25deg); }
+        50%  { -webkit-transform: rotate(20deg); transform: rotate(20deg); }
+}
+
+@-webkit-keyframes shoulder-right {
+    0%, 100%  { -webkit-transform: rotate(20deg); transform: rotate(20deg); }
+         50%  { -webkit-transform: rotate(-25deg); transform: rotate(-25deg); }
+}
+
+@-webkit-keyframes forearm-left {  
+    0%, 100%  { -webkit-transform: rotate(-40deg); transform: rotate(-40deg); }  
+         50%  { -webkit-transform: rotate(15deg); transform: rotate(15deg); }
+}
+
+@-webkit-keyframes forearm-right {
+    0%, 100%  { -webkit-transform: rotate(15deg); transform: rotate(15deg); }
+         50%  { -webkit-transform: rotate(-40deg); transform: rotate(-40deg); }
+}
+
+@-webkit-keyframes hend-right {
+    0%, 100%  { -webkit-transform: rotate(5deg); transform: rotate(5deg); }
+         50%  { -webkit-transform: rotate(-20deg); transform: rotate(-20deg); }
+}
+
+@-webkit-keyframes hend-left {  
+    0%, 100%  { -webkit-transform: rotate(-20deg); transform: rotate(-20deg); }  
+         50%  { -webkit-transform: rotate(5deg); transform: rotate(5deg); }
+}
+
+@-webkit-keyframes hip-right {
+      0%  { -webkit-transform: rotate(-20deg); ransform: rotate(-20deg); }
+     50%  { -webkit-transform: rotate(20deg);  ransform: rotate(20deg); }
+    100%  { -webkit-transform: rotate(-20deg); ransform: rotate(-20deg); }
+}
+
+@-webkit-keyframes hip-left {
+      0%  { -webkit-transform: rotate(20deg);  transform: rotate(20deg); }
+     50%  { -webkit-transform: rotate(-20deg); transform: rotate(-20deg); }
+    100%  { -webkit-transform: rotate(20deg);  transform: rotate(20deg); }
+}
+
+@-webkit-keyframes shin-right {
+    0%, 50% { -webkit-transform: rotate(0deg); transform: rotate(0deg); }
+        75% { -webkit-transform: rotate(50deg); transform: rotate(50deg); animation-timing-function: ease-in;}
+}
+
+@-webkit-keyframes shin-left {
+    0%, 50% { -webkit-transform: rotate(0deg); transform: rotate(0deg); }
+        25% { -webkit-transform: rotate(50deg); transform: rotate(50deg); animation-timing-function: ease-in;}
+}
+
+@-webkit-keyframes knee-right {
+    0%, 50% { -webkit-transform: translateY(0px); transform: translateY(0px); }
+        75% { -webkit-transform: rotate(32deg) translateY(5px); transform: rotate(32deg) translateY(5px); animation-timing-function: ease-in;}
+}
+
+@-webkit-keyframes knee-left {
+    0%, 50% { -webkit-transform: translateY(0px); transform: translateY(0px); }
+        25% { -webkit-transform: rotate(32deg) translateY(5px); transform: rotate(32deg) translateY(5px); animation-timing-function: ease-in;}
+}
+
+@-webkit-keyframes foot-right {
+     5%  { -webkit-transform: rotate(-10deg); transform: rotate(-10deg); }
+    15%  { -webkit-transform: rotate(15deg); transform: rotate(15deg); }
+    25%  { -webkit-transform: rotate(0deg); transform: rotate(0deg); }
+    45%  { -webkit-transform: rotate(-10deg); transform: rotate(-10deg); }
+    95%  { -webkit-transform: rotate(-5deg); transform: rotate(-5deg); animation-timing-function: ease-in;}
+}
+
+@-webkit-keyframes foot-left {    
+    55%  { -webkit-transform: rotate(-10deg); transform: rotate(-10deg); }
+    60%  { -webkit-transform: rotate(10deg); transform: rotate(10deg); animation-timing-function: ease-in;}
+    85%  { -webkit-transform: rotate(-10deg); transform: rotate(-10deg); }
+     5%  { -webkit-transform: rotate(-5deg); transform: rotate(-5deg); }
+}
+
+@-webkit-keyframes toe-left {
+     5%  { -webkit-transform: rotate(0deg); transform: rotate(0deg); }
+    50%  { -webkit-transform: rotate(-5deg); transform: rotate(-5deg); }
+    25%  { -webkit-transform: rotate3d(1, -1, 1, -45deg); transform: rotate3d(1, -1, 1, -45deg); animation-timing-function: ease-in-out;}
+}
+
+@-webkit-keyframes toe-right {
+     5%  { -webkit-transform: rotate(0deg); transform: rotate(0deg); }
+    50%  { -webkit-transform: rotate(-5deg); transform: rotate(-5deg); }
+    75%  { -webkit-transform: rotate3d(1, -1, 1, -45deg); transform: rotate3d(1, -1, 1, -45deg); animation-timing-function: ease-in-out;}
+}
+
+@keyframes head {
+    50%  { -webkit-transform: rotate(-15deg); transform: rotate(-15deg); }
+}
+
+@keyframes torso {
+    50%  { -webkit-transform: rotate(5deg) translateY(7px); transform: rotate(5deg) translateY(7px); }
+}
+
+@keyframes shoulder-left {
+    0%, 100% { -webkit-transform: rotate(-25deg); transform: rotate(-25deg); }
+        50%  { -webkit-transform: rotate(20deg); transform: rotate(20deg); }
+}
+
+@keyframes shoulder-right {
+    0%, 100%  { -webkit-transform: rotate(20deg); transform: rotate(20deg); }
+         50%  { -webkit-transform: rotate(-25deg); transform: rotate(-25deg); }
+}
+
+@keyframes forearm-left {  
+    0%, 100%  { -webkit-transform: rotate(-40deg); transform: rotate(-40deg); }  
+         50%  { -webkit-transform: rotate(15deg); transform: rotate(15deg); }
+}
+
+@keyframes forearm-right {
+    0%, 100%  { -webkit-transform: rotate(15deg); transform: rotate(15deg); }
+         50%  { -webkit-transform: rotate(-40deg); transform: rotate(-40deg); }
+}
+
+@keyframes hend-right {
+    0%, 100%  { -webkit-transform: rotate(5deg); transform: rotate(5deg); }
+         50%  { -webkit-transform: rotate(-20deg); transform: rotate(-20deg); }
+}
+
+@keyframes hend-left {  
+    0%, 100%  { -webkit-transform: rotate(-20deg); transform: rotate(-20deg); }  
+         50%  { -webkit-transform: rotate(5deg); transform: rotate(5deg); }
+}
+
+@keyframes hip-right {
+      0%  { -webkit-transform: rotate(-20deg); ransform: rotate(-20deg); }
+     50%  { -webkit-transform: rotate(20deg);  ransform: rotate(20deg); }
+    100%  { -webkit-transform: rotate(-20deg); ransform: rotate(-20deg); }
+}
+
+@keyframes hip-left {
+      0%  { -webkit-transform: rotate(20deg);  transform: rotate(20deg); }
+     50%  { -webkit-transform: rotate(-20deg); transform: rotate(-20deg); }
+    100%  { -webkit-transform: rotate(20deg);  transform: rotate(20deg); }
+}
+
+@keyframes shin-right {
+    0%, 50% { -webkit-transform: rotate(0deg); transform: rotate(0deg); }
+        75% { -webkit-transform: rotate(50deg); transform: rotate(50deg); animation-timing-function: ease-in;}
+}
+
+@keyframes shin-left {
+    0%, 50% { -webkit-transform: rotate(0deg); transform: rotate(0deg); }
+        25% { -webkit-transform: rotate(50deg); transform: rotate(50deg); animation-timing-function: ease-in;}
+}
+
+@keyframes knee-right {
+    0%, 50% { -webkit-transform: translateY(0px); transform: translateY(0px); }
+        75% { -webkit-transform: rotate(32deg) translateY(5px); transform: rotate(32deg) translateY(5px); animation-timing-function: ease-in;}
+}
+
+@keyframes knee-left {
+    0%, 50% { -webkit-transform: translateY(0px); transform: translateY(0px); }
+        25% { -webkit-transform: rotate(32deg) translateY(5px); transform: rotate(32deg) translateY(5px); animation-timing-function: ease-in;}
+}
+
+@keyframes foot-right {
+     5%  { -webkit-transform: rotate(-10deg); transform: rotate(-10deg); }
+    15%  { -webkit-transform: rotate(15deg); transform: rotate(15deg); }
+    25%  { -webkit-transform: rotate(0deg); transform: rotate(0deg); }
+    45%  { -webkit-transform: rotate(-10deg); transform: rotate(-10deg); }
+    95%  { -webkit-transform: rotate(-5deg); transform: rotate(-5deg); animation-timing-function: ease-in;}
+}
+
+@keyframes foot-left {    
+    55%  { -webkit-transform: rotate(-10deg); transform: rotate(-10deg); }
+    60%  { -webkit-transform: rotate(10deg); transform: rotate(10deg); animation-timing-function: ease-in;}
+    85%  { -webkit-transform: rotate(-10deg); transform: rotate(-10deg); }
+     5%  { -webkit-transform: rotate(-5deg); transform: rotate(-5deg); }
+}
+
+@keyframes toe-left {
+     5%  { -webkit-transform: rotate(0deg); transform: rotate(0deg); }
+    50%  { -webkit-transform: rotate(-5deg); transform: rotate(-5deg); }
+    25%  { -webkit-transform: rotate3d(1, -1, 1, -45deg); transform: rotate3d(1, -1, 1, -45deg); animation-timing-function: ease-in-out;}
+}
+
+@keyframes toe-right {
+     5%  { -webkit-transform: rotate(0deg); transform: rotate(0deg); }
+    50%  { -webkit-transform: rotate(-5deg); transform: rotate(-5deg); }
+    75%  { -webkit-transform: rotate3d(1, -1, 1, -45deg); transform: rotate3d(1, -1, 1, -45deg); animation-timing-function: ease-in-out;}
+}
+
+.head,
+.torso,
+.shoulder,
+.forearm,
+.hend,
+.hip,
+.shin,
+.foot,
+.toe,
+.knee {    
+    -webkit-animation-duration: 2.7s;
+            animation-duration: 2.7s;
+}
+
+#fast:checked ~ .episode {
+    -webkit-animation-duration: 15s;
+            animation-duration: 15s;
+}
+
+#fast:checked ~ .episode .man .head,
+#fast:checked ~ .episode .man .torso,
+#fast:checked ~ .episode .man .shoulder,
+#fast:checked ~ .episode .man .forearm,
+#fast:checked ~ .episode .man .hend,
+#fast:checked ~ .episode .man .hip,
+#fast:checked ~ .episode .man .shin,
+#fast:checked ~ .episode .man .foot,
+#fast:checked ~ .episode .man .toe,
+#fast:checked ~ .episode .man .knee {
+    -webkit-animation-duration: 2s;
+            animation-duration: 2s;
+}
+
+/* ------------------------------------------ <<<= Позиционирование */
+.head {
+    top: 1rem;
+    height: 3.4rem;
+}
+
+.neck {
+    top: -1.7rem;
+    height: 1.7rem;
+}
+
+.torso {
+    top: 6.1rem;
+    z-index: 2;
+    height: 13.05rem;
+}
+
+.arm {
+    top: 1.07rem;
+    left: 1.5rem;
+}
+
+.shoulder {    
+    height: 5.95rem;
+}
+
+.forearm {
+    top: 5.95rem;
+    height: 5.1rem;
+}
+
+.hend {
+    top: 5.1rem;
+    height: 2.55rem;
+}
+
+.leg {
+    top: 11.15rem;
+    left: 1.9rem;
+}
+
+.hip {
+    top: 0rem;
+    height: 9.35rem;    
+}
+
+.shin {
+    top: 8.85rem;
+    height: 6.8rem;  
+}
+
+.knee {
+    height: 1.7rem;
+    width: .7rem;
+    left: 1.7rem;
+    top: 7.65rem;
+}
+
+.foot {
+    top: 6.02rem;
+    width: 3.4rem;
+    height: 1.7rem;
+
+    left: -.7rem;
+}
+
+.toe {
+    top: 0rem;
+    left: 3.4rem;
+    width: 1.7rem;
+    height: 1.7rem;
+}
+
+.shoulder_left,
+.forearm_left,
+.hend_left,
+.hip_left,
+.shin_left,
+.knee_left,
+.foot_left,
+.toe_left {
+    z-index: -1;
+}
+
+.leg_right,
+.hip_right,
+.shin_right,
+.knee_right,
+.foot_right,
+.toe_right {
+    z-index: 3;
+}
+
+.arm_right,
+.shoulder_right,
+.forearm_right,
+.hend_right {
+    z-index: 5;
+}
+
+/* ------------------------------------------ <<<= Кость */
+.head,
+.neck,
+.body,
+.shoulder,
+.forearm,
+.hend,
+.hip,
+.shin,
+.knee,
+.foot,
+.toe {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    -webkit-background-size: cover;
+            background-size: cover;    
+}
+
+.head {
+    background-image: url(../images/head.png);
+    border: none;
+
+    width: 4.4rem;
+    height: 4.4rem;
+    left: -.8rem;
+    top: -3.24rem;
+
+    -webkit-background-size: 100% 100%;
+            background-size: 100% 100%; 
+}
+
+.neck {
+    background-image: url(../images/neck.png);
+    border: none;
+    top: -.7rem;
+    left: 50%;
+    margin-left: -1rem;    
+}
+
+.torso {
+    width: 5rem;
+    left: 0rem;
+}
+
+.body {
+    background-image: url(../images/torso.png);
+    border: none; 
+
+    height: 13.05rem;
+    width: 5rem;
+}
+
+.shoulder_right,
+.shoulder_left {
+    background-image: url(../images/shoulder-r.png);
+    border: none;
+
+    -webkit-background-size: 100% 100%;
+            background-size: 100% 100%; 
+}
+
+.forearm_right,
+.forearm_left {
+    background-image: url(../images/forearm-r.png);
+    border: none;
+
+    -webkit-background-size: 100% 100%;
+            background-size: 100% 100%;
+
+    top: 5.45rem;
+    left: .15rem;    
+}
+
+.hend_left {
+    background-image: url(../images/hend-l.png);
+    border: none;
+
+    background-size: 80%;
+    top: 4.9rem;
+}
+
+.hend_right {
+    background-image: url(../images/hend-r.png);
+    border: none;
+
+    left: .51rem;
+    top: 4.75rem;
+}
+
+.head_right {
+    background-image: url(../images/head-r.png);
+    border: none;
+
+    -webkit-background-size: 100% 100%;
+            background-size: 100% 100%;
+}
+
+.hip_right,
+.hip_left {
+    background-image: url(../images/hip-r.png);
+    border: none;
+}
+
+.shin_right,
+.shin_left {
+    background-image: url(../images/shin-r.png);
+    border: none;
+
+    -webkit-background-size: 80%;
+            background-size: 80%;
+
+    left: -5px;
+}
+
+.knee_right,
+.knee_left {
+    background-image: url(../images/knee-r.png);
+    border: none;
+
+    left: 16px;
+    top: 7.9rem;
+
+    -webkit-background-size: 80%;
+            background-size: 80%;
+}
+
+.foot_right {
+    background-image: url(../images/foot-r.png);
+    border: none;
+
+    left: -.25rem;
+}
+
+.foot_left {
+    background-image: url(../images/foot-l.png);
+    border: none;
+
+    left: .1rem;
+}
+
+.toe_right {
+    background-image: url(../images/toe-r.png);
+    border: none;
+
+    -webkit-background-size: 80%;
+            background-size: 80%;
+
+    top: .5rem;
+    left: 2.5rem;
+}
+
+.toe_left {
+    background-image: url(../images/toe-l.png);
+    border: none;
+
+    -webkit-background-size: 80%;
+            background-size: 80%;
+
+    top: .25rem;
+    left: 2.55rem;
+}
